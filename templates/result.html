@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Searched data {% endblock %}
+
+
+
+{% block content %}
+<h1>Search result for {{ searched_key }}</h1>
+
+{% for data in searched_data %}
+<div class="card mt-2">
+    <div class="card-body text-dark text-left">
+        <span class="text-danger text-left pl-3">{{ data[1] }}</span> 
+        <span class="text-success text-left pl-3">{{ data[0] }}</span> 
+        <span class="text-muted text-left pl-3">{{ data[2] }}</span>
+        <p class="text-dark text-left h5 pl-3 pt-2"> 
+            <strong>{{ data[3] }}</strong>
+        </p>
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}
+
