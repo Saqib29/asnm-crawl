@@ -19,6 +19,12 @@ def search():
         else:
             data = script2.with_key(key)
             print(data)
+        
+        with open('files/resilt.csv', 'w', newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(['product  Type', 'Category', 'Article Date', 'Article Title'])
+            writer.writerows(data)
+
     except Exception as e:
         print(e)
 
