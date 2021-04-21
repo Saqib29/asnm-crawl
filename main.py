@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from opeartions import script, script2
+import csv, time
 
 app = Flask(__name__)
 
@@ -16,11 +17,10 @@ def search():
             data = script.without_key()
             # print(data)
         else:
-            data = script2.with_key()
-            # print(data)
+            data = script2.with_key(key)
+            print(data)
     except Exception as e:
         print(e)
-
 
     return render_template("result.html", searched_key=key, searched_data=data)
 

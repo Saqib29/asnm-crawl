@@ -1,8 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 import time
 
-def with_key():
+def with_key(key):
+    opt = Options()
+    opt.add_argument('headless')
+
 
     driver = webdriver.Chrome('/home/saqib/work/asnm-crawl/chromedriver/chromedriver')
 
@@ -10,9 +14,10 @@ def with_key():
     driver.maximize_window()
     driver.refresh()
 
+
     search_field = driver.find_elements_by_id('filter_text')[0]
     search_field.clear()
-    search_field.send_keys('covid')
+    search_field.send_keys(key)
     search_field.send_keys(Keys.ENTER)
 
     # print(search_field)

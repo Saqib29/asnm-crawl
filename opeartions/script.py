@@ -1,9 +1,14 @@
 from selenium import webdriver
 import time
+from selenium.webdriver.chrome.options import Options
+
 
 def without_key():
+    opt = Options()
+    opt.add_argument('headless')
 
-    driver = webdriver.Chrome('/home/saqib/work/asnm-crawl/chromedriver/chromedriver')
+    driver = webdriver.Chrome('/home/saqib/work/asnm-crawl/chromedriver/chromedriver', chrome_options=opt)
+
 
     driver.get('https://ansm.sante.fr/S-informer/Informations-de-securite-Lettres-aux-professionnels-de-sante')
     driver.maximize_window()
